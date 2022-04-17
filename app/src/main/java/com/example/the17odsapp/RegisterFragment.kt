@@ -26,22 +26,35 @@ class RegisterFragment : Fragment() {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
 
 
-        auth = Firebase.auth
+        //auth = Firebase.auth
 
         val view = binding.root
 
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        auth = Firebase.auth
+
+        binding.buttonRegistrar.setOnClickListener {
+            val correo = binding.editTextEmail.text.toString()
+            val pwd = binding.editTextPwd.text.toString()
+
+            createAccount(correo,pwd)
+        }
+    }
+
     private fun createAccount( email:String, password:String) {
 
-        auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this) { task ->
-            if(task.isSuccesful){
-
+        auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(requireActivity()) { task ->
+            if(task.isSuccessful){
                 val user = auth.currentUser
                 updateUI(user)
+                Toast.makeText(context,"Registro exitoso", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(context!!.applicationContext, "Registro fallido.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Registro fallido.", Toast.LENGTH_SHORT).show()
                 updateUI(null)
             }
         }
