@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import com.example.the17odsapp.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -52,7 +53,7 @@ class RegisterFragment : Fragment() {
         binding.accederButton.setOnClickListener {
             val correo = binding.editTextEmail.text.toString()
             val pwd = binding.editTextPwd.text.toString()
-            signIn(correo, pwd)
+            signIn(correo, pwd, it)
         }
     }
 
@@ -63,7 +64,7 @@ class RegisterFragment : Fragment() {
                 if (task.isSuccessful) {
                     val user = auth.currentUser
                     updateUI(user)
-                    Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(context, "Registro fallido.", Toast.LENGTH_SHORT).show()
                     updateUI(null)
@@ -71,13 +72,16 @@ class RegisterFragment : Fragment() {
             }
     }
 
-    private fun signIn(email: String, password: String) {
+    private fun signIn(email: String, password: String, view: View) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
 
-                    Toast.makeText(context, "entraste bien", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(context, "entraste bien", Toast.LENGTH_LONG).show()
                     val user = auth.currentUser
+
+                    val theAction = RegisterFragmentDirections.actionRegisterFragmentToUserPerfilFragment(email, password)
+                    view.findNavController().navigate(theAction)
                     updateUI(user)
                 } else {
                     Toast.makeText(context, "entraste mal", Toast.LENGTH_LONG).show()

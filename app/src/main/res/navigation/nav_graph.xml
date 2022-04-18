@@ -15,5 +15,15 @@
     <fragment
         android:id="@+id/userPerfilFragment"
         android:name="com.example.the17odsapp.UserPerfilFragment"
-        android:label="UserPerfilFragment" />
+        android:label="UserPerfilFragment" >
+        <argument
+            android:name="correo"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_userPerfilFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
 </navigation>

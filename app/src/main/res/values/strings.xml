@@ -6,4 +6,6 @@
     <string name="hint_contrasenia">contraseña</string>
     <string name="label_button_regisrar">Registrar</string>
     <string name="label_button_entrar">Entrar</string>
+    <string name="label_bienvenido">Bienvenido</string>
+    <string name="label_button_cerrarsesion">Cerrar sesión</string>
 </resources>
