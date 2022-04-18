@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.the17odsapp.databinding.FragmentUserPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -33,12 +34,15 @@ class UserPerfilFragment : Fragment() {
         auth = Firebase.auth
 
         binding.buttonLogOut.setOnClickListener {
-            signOut()
+            signOut(it)
         }
     }
 
-    private fun signOut() {
+    private fun signOut(view: View) {
         auth.signOut()
+        val theAction = UserPerfilFragmentDirections.actionUserPerfilFragmentToRegisterFragment()
+
+        view.findNavController().navigate(theAction)
     }
 
 }
