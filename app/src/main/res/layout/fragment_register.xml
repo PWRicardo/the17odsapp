@@ -37,6 +37,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="@string/label_button_regisrar" />
+
+        <Button
+            android:id="@+id/acceder_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/label_button_entrar" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </layout>

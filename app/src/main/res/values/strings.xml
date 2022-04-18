@@ -5,4 +5,5 @@
     <string name="hint_email">Correo electrónico</string>
     <string name="hint_contrasenia">contraseña</string>
     <string name="label_button_regisrar">Registrar</string>
+    <string name="label_button_entrar">Entrar</string>
 </resources>
