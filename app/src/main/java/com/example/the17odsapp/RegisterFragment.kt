@@ -47,7 +47,7 @@ class RegisterFragment : Fragment() {
             val correo = binding.editTextEmail.text.toString()
             val pwd = binding.editTextPwd.text.toString()
 
-            createAccount(correo, pwd)
+            createAccount(correo, pwd, it)
         }
 
         binding.accederButton.setOnClickListener {
@@ -57,13 +57,15 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun createAccount(email: String, password: String) {
+    private fun createAccount(email: String, password: String, view: View) {
 
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
                     updateUI(user)
+                    val theAction = RegisterFragmentDirections.actionRegisterFragmentToUserPerfilFragment(email,password)
+                    view.findNavController().navigate(theAction)
                     //Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(context, "Registro fallido.", Toast.LENGTH_SHORT).show()
