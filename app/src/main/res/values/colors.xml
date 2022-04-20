@@ -7,4 +7,29 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="color_goal01">#e5243b</color>
+    <color name="color_goal02">#DDA63A</color>
+    <color name="color_goal03">#4C9F38</color>
+    <color name="color_goal04">#C5192D</color>
+    <color name="color_goal05">#FF3A21</color>
+    <color name="color_goal06">#26BDE2</color>
+    <color name="color_goal07">#FCC30B</color>
+    <color name="color_goal08">#A21942</color>
+    <color name="color_goal09">#FD6925</color>
+    <color name="color_goal10">#DD1367</color>
+    <color name="color_goal11">#FD9D24</color>
+    <color name="color_goal12">#BF8B2E</color>
+    <color name="color_goal13">#3F7E44</color>
+    <color name="color_goal14">#0A97D9</color>
+    <color name="color_goal15">#56C02B</color>
+    <color name="color_goal16">#00689D</color>
+    <color name="color_goal17">#19486A</color>
+
+    <color name="AzulODS">#40C4FF</color>
+    <color name="White">#FFFFFF</color>
+    <color name="colorAccent">#FFAB40</color>
+    <color name="youWinDark">#35A571</color>
+    <color name="youWinBackground">#B7F8C9</color>
+    <color name="gameOverBackground">#f8bbd0</color>
 </resources>

@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_email">Correo electrónico</string>
-    <string name="hint_contrasenia">contraseña</string>
+    <string name="hint_contrasenia">Contraseña</string>
     <string name="label_button_regisrar">Registrar</string>
     <string name="label_button_entrar">Entrar</string>
     <string name="label_bienvenido">Bienvenido</string>

@@ -2,6 +2,9 @@ package com.example.the17odsapp
 
 import android.content.Context
 import android.os.Bundle
+import android.text.InputType
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -42,6 +45,16 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         auth = Firebase.auth
+        binding.idvercontra.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                // Acciones al estar activo
+                Toast.makeText(context, "me active", Toast.LENGTH_SHORT).show()
+                binding.editTextPwd.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            } else {
+                Toast.makeText(context, "me desactive", Toast.LENGTH_SHORT).show()
+                binding.editTextPwd.transformationMethod = PasswordTransformationMethod.getInstance()
+            }
+        }
 
         binding.buttonRegistrar.setOnClickListener {
             val correo = binding.editTextEmail.text.toString()
