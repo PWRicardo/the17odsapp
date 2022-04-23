@@ -1,5 +1,6 @@
 package com.example.the17odsapp
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.text.InputType
@@ -55,6 +56,14 @@ class RegisterFragment : Fragment() {
                 binding.editTextPwd.transformationMethod = PasswordTransformationMethod.getInstance()
             }
         }
+         fun alerta(){
+             val builder = AlertDialog.Builder(context)
+             builder.setTitle("Error")
+             builder.setMessage("Se ha producido un error con los datos ingresados")
+             builder.setPositiveButton("Aceptar",null)
+             val dialog: AlertDialog = builder.create()
+             dialog.show()
+        }
 
         binding.buttonRegistrar.setOnClickListener {
             if(binding.editTextEmail.text.isNotEmpty() && binding.editTextPwd.text.isNotEmpty()){
@@ -62,7 +71,7 @@ class RegisterFragment : Fragment() {
             val pwd = binding.editTextPwd.text.toString()
             createAccount(correo, pwd, it)
             }else{
-                Toast.makeText(context, "Verifique los datos", Toast.LENGTH_SHORT).show()
+                alerta()
             }
         }
 
@@ -72,7 +81,7 @@ class RegisterFragment : Fragment() {
             val pwd = binding.editTextPwd.text.toString()
             signIn(correo, pwd, it)
             }else{
-                Toast.makeText(context, "Verifique los datos", Toast.LENGTH_SHORT).show()
+                alerta()
             }
         }
     }
