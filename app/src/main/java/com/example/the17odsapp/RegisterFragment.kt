@@ -57,16 +57,23 @@ class RegisterFragment : Fragment() {
         }
 
         binding.buttonRegistrar.setOnClickListener {
+            if(binding.editTextEmail.text.isNotEmpty() && binding.editTextPwd.text.isNotEmpty()){
             val correo = binding.editTextEmail.text.toString()
             val pwd = binding.editTextPwd.text.toString()
-
             createAccount(correo, pwd, it)
+            }else{
+                Toast.makeText(context, "Verifique los datos", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.accederButton.setOnClickListener {
+            if(binding.editTextEmail.text.isNotEmpty() && binding.editTextPwd.text.isNotEmpty()){
             val correo = binding.editTextEmail.text.toString()
             val pwd = binding.editTextPwd.text.toString()
             signIn(correo, pwd, it)
+            }else{
+                Toast.makeText(context, "Verifique los datos", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
