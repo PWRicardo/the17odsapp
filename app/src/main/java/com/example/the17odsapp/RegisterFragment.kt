@@ -56,14 +56,7 @@ class RegisterFragment : Fragment() {
                 binding.editTextPwd.transformationMethod = PasswordTransformationMethod.getInstance()
             }
         }
-         fun alerta(){
-             val builder = AlertDialog.Builder(context)
-             builder.setTitle("Error")
-             builder.setMessage("Se ha producido un error con los datos ingresados")
-             builder.setPositiveButton("Aceptar",null)
-             val dialog: AlertDialog = builder.create()
-             dialog.show()
-        }
+         //alerta(context)
 
         binding.buttonRegistrar.setOnClickListener {
             if(binding.editTextEmail.text.isNotEmpty() && binding.editTextPwd.text.isNotEmpty()){
@@ -71,7 +64,7 @@ class RegisterFragment : Fragment() {
             val pwd = binding.editTextPwd.text.toString()
             createAccount(correo, pwd, it)
             }else{
-                alerta()
+                alerta(context)
             }
         }
 
@@ -81,9 +74,18 @@ class RegisterFragment : Fragment() {
             val pwd = binding.editTextPwd.text.toString()
             signIn(correo, pwd, it)
             }else{
-                alerta()
+                alerta(context)
             }
         }
+    }
+
+    fun alerta(context: Context?){
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Error")
+        builder.setMessage("Se ha producido un error con los datos ingresados")
+        builder.setPositiveButton("Aceptar",null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     private fun createAccount(email: String, password: String, view: View) {
@@ -98,6 +100,7 @@ class RegisterFragment : Fragment() {
                     //Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(context, "Registro fallido.", Toast.LENGTH_SHORT).show()
+                    alerta(context)
                     updateUI(null)
                 }
             }
@@ -116,6 +119,7 @@ class RegisterFragment : Fragment() {
                     updateUI(user)
                 } else {
                     Toast.makeText(context, "entraste mal", Toast.LENGTH_LONG).show()
+                    alerta(context)
                     updateUI(null)
                 }
             }
