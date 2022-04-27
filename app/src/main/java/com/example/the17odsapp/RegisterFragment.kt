@@ -97,6 +97,11 @@ class RegisterFragment : Fragment() {
                 if (task.isSuccessful) {
                     val user = auth.currentUser
                     updateUI(user)
+
+                    //verificar correo
+                    sendEmailVerification()
+                    //val actionCodeSettings = buildActionCodeSettings()
+                    //sendSignInLink("Verifica tu correo, por favor", actionCodeSettings)
                     val theAction = RegisterFragmentDirections.actionRegisterFragmentToUserPerfilFragment(email,password)
                     view.findNavController().navigate(theAction)
                     //Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
@@ -127,7 +132,7 @@ class RegisterFragment : Fragment() {
             }
     }
 
-    private fun buildActionCodeSettings() {
+    private fun buildActionCodeSettings() : ActionCodeSettings {
         val actionCodeSettings = actionCodeSettings {
 
             url = "https://triviaodsapp.firebaseapp.com/__/auth/action?mode=action&oobCode=code"
@@ -138,12 +143,31 @@ class RegisterFragment : Fragment() {
                 "12"
             )
         }
+
+        return actionCodeSettings
     }
 
     private fun sendSignInLink(email:String, actionCodeSettings: ActionCodeSettings) {
         Firebase.auth.sendSignInLinkToEmail(email, actionCodeSettings).addOnCompleteListener { task ->
             if(task.isSuccessful) {
                 Toast.makeText(context, "Verifica tu correo", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(context, "no se envio correo", Toast.LENGTH_LONG).show()
+            }
+
+        }
+    }
+
+    //**This is the correct function to verify an email
+    private fun sendEmailVerification() {
+        val user = Firebase.auth.currentUser
+
+        user!!.sendEmailVerification().addOnCompleteListener { task ->
+
+            if(task.isSuccessful) {
+                Toast.makeText(context, "Verifica tu correo", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(context, "No se envió correo", Toast.LENGTH_LONG).show()
             }
 
         }
