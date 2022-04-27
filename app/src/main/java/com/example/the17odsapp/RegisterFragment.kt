@@ -49,10 +49,10 @@ class RegisterFragment : Fragment() {
         binding.idvercontra.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 // Acciones al estar activo
-                Toast.makeText(context, "me active", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(context, "me active", Toast.LENGTH_SHORT).show()
                 binding.editTextPwd.transformationMethod = HideReturnsTransformationMethod.getInstance()
             } else {
-                Toast.makeText(context, "me desactive", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(context, "me desactive", Toast.LENGTH_SHORT).show()
                 binding.editTextPwd.transformationMethod = PasswordTransformationMethod.getInstance()
             }
         }
@@ -64,7 +64,7 @@ class RegisterFragment : Fragment() {
             val pwd = binding.editTextPwd.text.toString()
             createAccount(correo, pwd, it)
             }else{
-                alerta(context)
+                alerta()
             }
         }
 
@@ -74,12 +74,12 @@ class RegisterFragment : Fragment() {
             val pwd = binding.editTextPwd.text.toString()
             signIn(correo, pwd, it)
             }else{
-                alerta(context)
+                alerta()
             }
         }
     }
 
-    fun alerta(context: Context?){
+    private fun alerta(){
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Error")
         builder.setMessage("Se ha producido un error con los datos ingresados")
@@ -99,8 +99,8 @@ class RegisterFragment : Fragment() {
                     view.findNavController().navigate(theAction)
                     //Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(context, "Registro fallido.", Toast.LENGTH_SHORT).show()
-                    alerta(context)
+                    //Toast.makeText(context, "Registro fallido.", Toast.LENGTH_SHORT).show()
+                    alerta()
                     updateUI(null)
                 }
             }
@@ -118,8 +118,8 @@ class RegisterFragment : Fragment() {
                     view.findNavController().navigate(theAction)
                     updateUI(user)
                 } else {
-                    Toast.makeText(context, "entraste mal", Toast.LENGTH_LONG).show()
-                    alerta(context)
+                    //Toast.makeText(context, "entraste mal", Toast.LENGTH_LONG).show()
+                    alerta()
                     updateUI(null)
                 }
             }
