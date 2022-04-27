@@ -13,8 +13,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.the17odsapp.databinding.FragmentRegisterBinding
+import com.google.firebase.auth.ActionCodeSettings
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.actionCodeSettings
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -123,6 +125,28 @@ class RegisterFragment : Fragment() {
                     updateUI(null)
                 }
             }
+    }
+
+    private fun buildActionCodeSettings() {
+        val actionCodeSettings = actionCodeSettings {
+
+            url = "https://triviaodsapp.firebaseapp.com/__/auth/action?mode=action&oobCode=code"
+            handleCodeInApp = true
+            setAndroidPackageName(
+                "com.example.the17odsapp",
+                true,
+                "12"
+            )
+        }
+    }
+
+    private fun sendSignInLink(email:String, actionCodeSettings: ActionCodeSettings) {
+        Firebase.auth.sendSignInLinkToEmail(email, actionCodeSettings).addOnCompleteListener { task ->
+            if(task.isSuccessful) {
+                Toast.makeText(context, "Verifica tu correo", Toast.LENGTH_LONG).show()
+            }
+
+        }
     }
 
     private fun updateUI(user: FirebaseUser?) {
