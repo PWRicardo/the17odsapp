@@ -79,6 +79,11 @@ class RegisterFragment : Fragment() {
                 alerta()
             }
         }
+
+        binding.buttonOlvideCont.setOnClickListener {
+            val theAction = RegisterFragmentDirections.actionRegisterFragmentToResetPwdFragment()
+            it.findNavController().navigate(theAction)
+        }
     }
 
     private fun alerta(){
@@ -172,6 +177,9 @@ class RegisterFragment : Fragment() {
 
         }
     }
+
+
+
 
     private fun updateUI(user: FirebaseUser?) {
 

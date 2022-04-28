@@ -8,4 +8,8 @@
     <string name="label_button_entrar">Entrar</string>
     <string name="label_bienvenido">Bienvenido</string>
     <string name="label_button_cerrarsesion">Cerrar sesión</string>
+    <string name="label_switch_mostrarcontrasenia">Mostrar Contraseña</string>
+    <string name="label_button_olvidecontrasenia">Olvidé mi contraseña</string>
+    <string name="hint_ejemploEmail">ejemplo@gmail.com</string>
+    <string name="label_button_recuperarContrasenia">Recuperar contraseña</string>
 </resources>
