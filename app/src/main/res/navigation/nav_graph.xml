@@ -25,5 +25,16 @@
         <action
             android:id="@+id/action_userPerfilFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_userPerfilFragment_to_editPerfilFragment"
+            app:destination="@+id/editPerfilFragment"
+            />
     </fragment>
+    <fragment
+        android:id="@+id/editPerfilFragment"
+        android:name="com.example.the17odsapp.EditPerfilFragment"
+        android:label="EditPerfilFragment" >
+
+    </fragment>
+
 </navigation>

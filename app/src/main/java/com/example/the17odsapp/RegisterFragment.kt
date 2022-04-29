@@ -118,7 +118,7 @@ class RegisterFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
 
-                    //Toast.makeText(context, "entraste bien", Toast.LENGTH_LONG).show()
+
                     val user = auth.currentUser
 
                     val theAction = RegisterFragmentDirections.actionRegisterFragmentToUserPerfilFragment(email, password)

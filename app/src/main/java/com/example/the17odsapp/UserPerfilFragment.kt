@@ -42,6 +42,9 @@ class UserPerfilFragment : Fragment() {
         binding.buttonLogOut.setOnClickListener {
             signOut(it)
         }
+        binding.buttonEditPerfil.setOnClickListener {
+            val theAction =
+        }
     }
 
     private fun signOut(view: View) {
