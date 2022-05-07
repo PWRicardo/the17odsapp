@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_margin="20dp"
-            android:hint="@string/hint_contrasenia"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress" />
 
         <Button
