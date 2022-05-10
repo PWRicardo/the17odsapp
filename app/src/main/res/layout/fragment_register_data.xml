@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".RegisterDataFragment">
+
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_registraDatos" />
+
+    <EditText
+        android:id="@+id/editText_NombreComp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/label_nombreCompleto"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/label_direccion"/>
+
+
+    <EditText
+        android:id="@+id/Editext_calle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/label_direccionCalle"/>
+
+    <EditText
+        android:id="@+id/Editext_NExterior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/label_direccionNExterior"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/Editext_cp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/label_direccionCPostal"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/Editext_colonia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:inputType="textPersonName"
+        android:hint="@string/label_direccionColonia"/>
+
+    <EditText
+        android:id="@+id/Editext_ciudad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:inputType="textPersonName"
+        android:hint="@string/label_direccionCiudad"/>
+
+    <EditText
+        android:id="@+id/Editext_estado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:inputType="textPersonName"
+        android:hint="@string/label_direccionEstado"/>
+
+    <EditText
+        android:id="@+id/Editext_pais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:inputType="textPersonName"
+        android:hint="@string/label_direccionPais"/>
+
+    <Button
+        android:id="@+id/button_registrarDatos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/label_button_registrarDatos" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

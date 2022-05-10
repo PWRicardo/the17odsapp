@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_registerFragment_to_resetPwdFragment"
             app:destination="@id/resetPwdFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_registerDataFragment"
+            app:destination="@id/registerDataFragment" />
     </fragment>
     <fragment
         android:id="@+id/userPerfilFragment"
@@ -35,4 +38,19 @@
         android:name="com.example.the17odsapp.ResetPwdFragment"
         android:label="fragment_reset_pwd"
         tools:layout="@layout/fragment_reset_pwd" />
+    <fragment
+        android:id="@+id/registerDataFragment"
+        android:name="com.example.the17odsapp.RegisterDataFragment"
+        android:label="fragment_register_data"
+        tools:layout="@layout/fragment_register_data" >
+        <action
+            android:id="@+id/action_registerDataFragment_to_userPerfilFragment"
+            app:destination="@id/userPerfilFragment" />
+        <argument
+            android:name="correo"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
+    </fragment>
 </navigation>

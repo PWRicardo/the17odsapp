@@ -107,7 +107,7 @@ class RegisterFragment : Fragment() {
                     sendEmailVerification()
                     //val actionCodeSettings = buildActionCodeSettings()
                     //sendSignInLink("Verifica tu correo, por favor", actionCodeSettings)
-                    val theAction = RegisterFragmentDirections.actionRegisterFragmentToUserPerfilFragment(email,password)
+                    val theAction = RegisterFragmentDirections.actionRegisterFragmentToRegisterDataFragment(email, password)
                     view.findNavController().navigate(theAction)
                     //Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
                 } else {
