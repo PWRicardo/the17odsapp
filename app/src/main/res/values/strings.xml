@@ -23,4 +23,6 @@
     <string name="label_direccionEstado">Estado</string>
     <string name="label_direccionCiudad">Ciudad</string>
     <string name="label_button_registrarDatos">Registrar datos</string>
+    <string name="label_nickname">Nickname</string>
+    <string name="hint_nickname">Usuario007</string>
 </resources>

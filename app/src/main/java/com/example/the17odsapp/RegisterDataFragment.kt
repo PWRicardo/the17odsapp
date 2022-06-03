@@ -47,6 +47,7 @@ class RegisterDataFragment : Fragment() {
         binding.buttonRegistrarDatos.setOnClickListener {
 
             val nombre = binding.editTextNombreComp.text.toString()
+            val nickname = binding.editTextNickname.text.toString()
             val email  = args.correo
             val calle = binding.EditextCalle.text.toString()
             val nExterior = binding.EditextNExterior.text.toString()
@@ -56,14 +57,14 @@ class RegisterDataFragment : Fragment() {
             val estado = binding.EditextEstado.text.toString()
             val pais = binding.EditextPais.text.toString()
 
-            val theUserHas = User(nombre, email, calle, nExterior, cPostal, colonia, ciudad, estado, pais)
+            val theUserHas = User(nombre, nickname, email, calle, nExterior, cPostal, colonia, ciudad, estado, pais)
 
-            database.child(nombre).setValue(theUserHas).addOnSuccessListener {
+            database.child(nickname).setValue(theUserHas).addOnSuccessListener {
                 Toast.makeText(context, "Bienvenido", Toast.LENGTH_LONG).show()
             }.addOnFailureListener{
                 Toast.makeText(context, "Fallo ocurrido", Toast.LENGTH_LONG).show()
             }
-            val theAction = RegisterDataFragmentDirections.actionRegisterDataFragmentToUserPerfilFragment(args.correo, args.password)
+            val theAction = RegisterDataFragmentDirections.actionRegisterDataFragmentToUserPerfilFragment(nickname, args.password)
              it.findNavController().navigate(theAction)
         }
 
