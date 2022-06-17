@@ -25,4 +25,7 @@
     <string name="label_button_registrarDatos">Registrar datos</string>
     <string name="label_nickname">Nickname</string>
     <string name="hint_nickname">Usuario007</string>
+    <string name="label_button_jugar">Jugar</string>
+    <string name="label_puntos">0 pts</string>
+    <string name="label_button_siguiente">siguiente</string>
 </resources>

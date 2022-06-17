@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_userPerfilFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_userPerfilFragment_to_playFragment"
+            app:destination="@id/playFragment" />
     </fragment>
     <fragment
         android:id="@+id/resetPwdFragment"
@@ -53,4 +56,8 @@
             android:name="password"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.example.the17odsapp.PlayFragment"
+        android:label="PlayFragment" />
 </navigation>
