@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.the17odsapp.databinding.FragmentPlayBinding
 
 class PlayFragment : Fragment() {
@@ -14,6 +15,8 @@ class PlayFragment : Fragment() {
     private var _binding : FragmentPlayBinding? = null
 
     private val binding get() = _binding!!
+
+    private val viewModel: MainViewModel by viewModels { MainViewModelFactory(puntuacionLocal) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,11 +34,19 @@ class PlayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSiguientePlay.setOnClickListener {
-            puntuacionLocal += 1
+        binding.textViewPuntuacionPlay.text = viewModel.puntuacion.toString()
 
-            binding.textViewPuntuacionPlay.text = puntuacionLocal.toString()
+        viewModel.puntuacion.observe(viewLifecycleOwner) { puntuacionVM ->
+            binding.buttonSiguientePlay.setOnClickListener {
+                viewModel.incremento()
+                //puntuacionLocal = (puntuacionVM + 1)
+
+                binding.textViewPuntuacionPlay.text = puntuacionVM.toString()
+
+            }
         }
+
+
 
     }
 }
